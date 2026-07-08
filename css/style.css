@@ -329,3 +329,171 @@ body {
     margin-top: 2rem;
     font-size: 1.2rem;
 }
+/* --- About Section Read More Toggle --- */
+
+/* 1. This hides the extended text by default on page load */
+.about-hidden-content {
+    display: none; 
+}
+
+/* 2. When JavaScript adds the "show" class, this makes it visible again */
+.about-hidden-content.show {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    animation: fadeInDown 0.4s ease-out; /* Adds a smooth reveal effect */
+}
+
+/* 3. Styling for the clickable toggle button */
+.btn-text-toggle {
+    background: none;
+    border: none;
+    color: var(--color-electric);
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    align-self: flex-start; /* Aligns the button to the left */
+    transition: color 0.3s ease;
+}
+
+.btn-text-toggle:hover {
+    color: var(--color-white);
+}
+
+/* 4. A simple animation to make the dropdown feel premium, not jarring */
+@keyframes fadeInDown {
+    from { 
+        opacity: 0; 
+        transform: translateY(-10px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+/* =========================================
+   9. SERVICES SECTION
+   ========================================= */
+.services-section {
+    padding: 5rem 0;
+    /* We keep the Midnight Black background here to alternate with the About section */
+}
+
+/* --- The Mobile-First Grid --- */
+.services-grid {
+    display: grid;
+    /* On mobile, this creates 1 single column */
+    grid-template-columns: 1fr; 
+    gap: 1.5rem; /* Space between cards */
+}
+
+/* --- The Individual Service Card --- */
+.service-card {
+    background-color: #0c0c0c; /* Just slightly lighter than the background to make a box shape */
+    border: 1px solid #1a1a1a; /* A very faint border */
+    padding: 2rem;
+    border-radius: 8px;
+    /* The transition tells the browser to animate ANY changes over 0.3 seconds smoothly */
+    transition: all 0.3s ease; 
+}
+
+/* This is where the magic happens on mouse hover */
+.service-card:hover {
+    /* The border lights up with the client's Electric Blue */
+    border-color: var(--color-electric); 
+    /* The card physically lifts up 5 pixels */
+    transform: translateY(-5px); 
+    /* We add a subtle glowing shadow underneath using the Electric Blue with 15% opacity */
+    box-shadow: 0 10px 30px rgba(0, 102, 255, 0.15); 
+}
+
+/* Bringing in the Soft Gold for the icon */
+.service-icon {
+    color: var(--color-gold);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.service-name {
+    color: var(--color-white);
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.service-desc {
+    color: var(--color-silver);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* =========================================
+   DESKTOP ENHANCEMENTS (Tablet & Up)
+   ========================================= */
+
+/* For Tablets (iPads, etc) */
+@media (min-width: 768px) {
+    .services-grid {
+        /* This automatically splits the grid into 2 equal columns */
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 2rem;
+    }
+}
+
+/* For Laptops and Monitors */
+@media (min-width: 1024px) {
+    .services-grid {
+        /* This automatically splits the grid into 3 equal columns */
+        grid-template-columns: repeat(3, 1fr); 
+    }
+    
+    /* Because there are 10 cards, a 3-column grid leaves 1 card dangling at the bottom. 
+       This neat trick makes the very last card stretch across the remaining space cleanly! */
+    .service-card:last-child {
+        grid-column: span 1; /* By default it takes 1 column, but on larger screens we can center it if preferred, right now it just fits the grid naturally */
+    }
+}
+/* =========================================
+   10. COMMUNITY & TESTIMONIALS SECTION
+   ========================================= */
+.community-section {
+    padding: 5rem 0;
+    background-color: var(--color-midnight);
+}
+
+.community-container {
+    max-width: 800px; /* Keeps the text block from stretching too wide */
+    margin: 0 auto;
+}
+
+/* --- The Gold Highlight Box --- */
+.community-box {
+    /* We use RGBA to make the gold color 95% transparent, creating a glass-like wash */
+    background-color: rgba(212, 175, 55, 0.05); 
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 12px;
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative;
+    /* Adds a very subtle floating shadow */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.quote-icon {
+    color: var(--color-gold);
+    font-size: 4rem;
+    line-height: 1;
+    margin-bottom: 1rem;
+    opacity: 0.6; /* Dims the icon slightly so it doesn't overpower the text */
+}
+
+.community-text {
+    color: var(--color-white);
+    font-size: 1.3rem;
+    line-height: 1.8;
+    font-style: italic; /* Italics traditionally signify quotes/testimonials */
+}

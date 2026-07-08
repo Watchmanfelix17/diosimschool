@@ -70,33 +70,154 @@
                     <div class="title-underline"></div>
                 </div>
 
-                <div class="about-content">
+              <div class="about-content">
+                    <!-- VISIBLE CONTENT: These first two paragraphs will always show -->
                     <p>
                         I'm David Imuzai Olakunle (DIO), founder of DIOSIMSchool.com, an independent research and education platform exploring the intersection of human potential, faith (belief), consciousness, psychology, and artificial intelligence.
                     </p>
-                    
                     <p>
                         My work began with a simple question: <strong>Why do some people consistently grow, adapt, and create meaningful impact while others remain limited by unseen patterns?</strong>
                     </p>
                     
-                    <p>
-                        That question led me to develop S.I.M. (Synchronized Induced eMulation), a conceptual framework that explores how beliefs, imagination, identity, behavior, and purposeful action interact to shape personal growth and lived experience. Through research, writing, teaching, and practical tools, I help people think more clearly, navigate transitions, interpret symbolic experiences such as dreams, and intentionally develop toward their highest potential.
-                    </p>
-
-                    <!-- We use a specialized div to make this paragraph stand out -->
-                    <div class="about-highlight">
+                    <!-- HIDDEN CONTENT: Everything inside this div will be hidden until clicked -->
+                    <div id="about-extended-content" class="about-hidden-content">
                         <p>
-                            DIOSIMSchool exists to make these ideas practical. It is more than a website. It is a digital campus dedicated to research, education, AI-powered learning, and the development of frameworks that help people understand themselves, make better decisions, and live with greater purpose.
+                            That question led me to develop S.I.M. (Synchronized Induced eMulation), a conceptual framework that explores how beliefs, imagination, identity, behavior, and purposeful action interact to shape personal growth and lived experience. Through research, writing, teaching, and practical tools, I help people think more clearly, navigate transitions, interpret symbolic experiences such as dreams, and intentionally develop toward their highest potential.
                         </p>
+
+                        <!-- The highlighted mission statement -->
+                        <div class="about-highlight">
+                            <p>
+                                DIOSIMSchool exists to make these ideas practical. It is more than a website. It is a digital campus dedicated to research, education, AI-powered learning, and the development of frameworks that help people understand themselves, make better decisions, and live with greater purpose.
+                            </p>
+                        </div>
+
+                        <p>
+                            People enjoy working with me because I don't offer quick fixes or empty motivation. I combine deep thinking with practical application, helping individuals connect timeless principles with modern challenges. My goal is to equip people not merely to succeed, but to become thoughtful architects of their own lives and contributors to the world around them.
+                        </p>
+
+                        <p class="about-closing">
+                            At DIOSIMSchool, we believe that the future belongs to those who can learn continuously, think independently, adapt wisely, and align their lives with truth, purpose, and enduring value. <br><br>
+                            <strong>Welcome to the journey of becoming an Architect of Possibility.</strong>
+                        </p>
+                    </div> <!-- End of hidden content -->
+
+                    <!-- THE TOGGLE BUTTON: This triggers the JavaScript -->
+                    <button id="about-toggle-btn" class="btn-text-toggle">
+                        Read Full Story <span>&#8595;</span>
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- =========================================
+             SERVICES SECTION 
+             ========================================= -->
+        <section id="services" class="services-section">
+            <div class="container">
+                
+                <!-- Reusing our existing header styling -->
+                <div class="section-header">
+                    <h2 class="section-title">Areas of Practice</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <!-- The CSS Grid Container -->
+                <div class="services-grid">
+                    
+                    <!-- Service Card 1 -->
+                    <div class="service-card">
+                        <!-- We use a simple text character for an elegant gold icon -->
+                        <div class="service-icon">✦</div> 
+                        <h3 class="service-name">S.I.M. Research Institute</h3>
+                        <p class="service-desc">Research papers and educational resources on human potential.</p>
                     </div>
 
-                    <p>
-                        People enjoy working with me because I don't offer quick fixes or empty motivation. I combine deep thinking with practical application, helping individuals connect timeless principles with modern challenges. My goal is to equip people not merely to succeed, but to become thoughtful architects of their own lives and contributors to the world around them.
-                    </p>
+                    <!-- Service Card 2 -->
+                    <div class="service-card">
+                        <div class="service-icon">✦</div>
+                        <h3 class="service-name">SIM AI</h3>
+                        <p class="service-desc">AI-powered assistant for learning, reflection, and personal growth.</p>
+                    </div>
 
-                    <p class="about-closing">
-                        At DIOSIMSchool, we believe that the future belongs to those who can learn continuously, think independently, adapt wisely, and align their lives with truth, purpose, and enduring value. <br><br>
-                        <strong>Welcome to the journey of becoming an Architect of Possibility.</strong>
+                    <!-- Service Card 3 -->
+                    <div class="service-card">
+                        <div class="service-icon">✦</div>
+                        <h3 class="service-name">DIOSIM Academy</h3>
+                        <p class="service-desc">Online courses, certifications, and guided learning.</p>
+                    </div>
+
+                    <!-- Service Card 4 -->
+                    <div class="service-card">
+                        <div class="service-icon">✦</div>
+                        <h3 class="service-name">Possibility Lab</h3>
+                        <p class="service-desc">Interactive tools for dreams, goals, habits, and decision-making.</p>
+                    </div>
+
+                    <!-- Service Card 5 -->
+                    <div class="service-card">
+                        <div class="service-icon">✦</div>
+                        <h3 class="service-name">Dream Interpretation</h3>
+                        <p class="service-desc">Symbolic and reflective dream analysis using the S.I.M. framework.</p>
+                    </div>
+
+                    <!-- Service Card 6 -->
+                    <div class="service-card">
+                        <div class="service-icon">✦</div>
+                        <h3 class="service-name">Coaching & Mentorship</h3>
+                        <p class="service-desc">Personal and group coaching for purpose and growth.</p>
+                    </div>
+
+                    <!-- Service Card 7 -->
+                    <div class="service-card">
+                        <div class="service-icon">✦</div>
+                        <h3 class="service-name">Speaking & Workshops</h3>
+                        <p class="service-desc">Educational talks, seminars, and training programs.</p>
+                    </div>
+
+                    <!-- Service Card 8 -->
+                    <div class="service-card">
+                        <div class="service-icon">✦</div>
+                        <h3 class="service-name">Digital Publications</h3>
+                        <p class="service-desc">eBooks, journals, templates, and research reports.</p>
+                    </div>
+
+                    <!-- Service Card 9 -->
+                    <div class="service-card">
+                        <div class="service-icon">✦</div>
+                        <h3 class="service-name">Community Membership</h3>
+                        <p class="service-desc">Access to exclusive learning and collaboration.</p>
+                    </div>
+
+                    <!-- Service Card 10 -->
+                    <div class="service-card">
+                        <div class="service-icon">✦</div>
+                        <h3 class="service-name">AI Innovation</h3>
+                        <p class="service-desc">Development of intelligent tools for personal development and learning.</p>
+                    </div>
+
+                </div> <!-- End of Services Grid -->
+
+            </div>
+        </section>
+        
+        <!-- =========================================
+             COMMUNITY & TESTIMONIALS SECTION 
+             ========================================= -->
+        <section id="testimonials" class="community-section">
+            <div class="container community-container">
+                
+                <div class="section-header">
+                    <h2 class="section-title">Voices from the Community</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="community-box">
+                    <!-- A decorative quote mark to establish the testimonial feel -->
+                    <div class="quote-icon">❝</div>
+                    <p class="community-text">
+                        DIOSIMSchool is in its founding stage. As students, researchers, and early adopters experience the S.I.M. framework, their stories and insights will be featured here. Be part of the first generation shaping this movement.
                     </p>
                 </div>
 
