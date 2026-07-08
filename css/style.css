@@ -1,0 +1,144 @@
+/* 1. CSS VARIABLES (Design Tokens) */
+:root {
+    --color-midnight: #050505;
+    --color-electric: #0066FF;
+    --color-silver: #E0E0E0;
+    --color-white: #FFFFFF;
+    --color-gold: #D4AF37;
+    
+    --font-primary: system-ui, -apple-system, sans-serif;
+}
+
+/* 2. UNIVERSAL RESET */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 3. BASE MOBILE STYLES */
+body {
+    background-color: var(--color-midnight);
+    color: var(--color-silver);
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 4. UTILITY CLASSES */
+.container {
+    width: 100%;
+    padding: 0 1.5rem; /* Standard mobile padding */
+    margin: 0 auto;
+}
+/* =========================================
+   5. HEADER & NAVIGATION 
+   ========================================= */
+.site-header {
+    background-color: var(--color-midnight);
+    border-bottom: 1px solid #1a1a1a; /* A very subtle line to separate nav from body */
+    position: sticky; /* Keeps the nav at the top when scrolling */
+    top: 0;
+    z-index: 100; /* Ensures the nav stays on top of all other content */
+}
+
+/* Flexbox keeps the logo on the left and the button/links on the right */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px; 
+}
+
+/* Sizing the logo so it isn't massive */
+.brand-logo {
+    max-height: 40px;
+    width: auto;
+}
+
+/* --- Mobile Menu Button (Hamburger) --- */
+.mobile-menu-btn {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.hamburger-line {
+    width: 25px;
+    height: 2px;
+    background-color: var(--color-silver);
+    border-radius: 2px;
+}
+
+/* --- Mobile Navigation Links (Hidden by default) --- */
+.nav-links {
+    display: none; /* We hide the links on mobile until the button is clicked */
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-midnight);
+    padding: 1.5rem;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: var(--color-silver);
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-item:hover {
+    color: var(--color-white);
+}
+
+/* The Primary Button Style (Electric Blue) */
+.btn-primary {
+    background-color: var(--color-electric);
+    color: var(--color-white);
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background-color: #0052cc; /* A slightly darker blue for the hover effect */
+    color: var(--color-white);
+}
+
+/* =========================================
+   DESKTOP ENHANCEMENTS (Tablet & Up)
+   ========================================= */
+@media (min-width: 768px) {
+    /* Hide the hamburger button on big screens */
+    .mobile-menu-btn {
+        display: none; 
+    }
+
+    /* Change the nav links from a hidden dropdown to a visible horizontal row */
+    .nav-links {
+        display: block;
+        position: static; /* Removes the absolute positioning from mobile */
+        width: auto;
+        padding: 0;
+        border: none;
+    }
+
+    .nav-list {
+        flex-direction: row; /* Aligns links side-by-side horizontally */
+        gap: 2.5rem;
+    }
+}
