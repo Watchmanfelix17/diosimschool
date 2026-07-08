@@ -74,8 +74,9 @@ body {
 }
 
 /* --- Mobile Navigation Links (Hidden by default) --- */
+/* --- Mobile Navigation Links (Hidden by default) --- */
 .nav-links {
-    display: none; /* We hide the links on mobile until the button is clicked */
+    display: none; 
     position: absolute;
     top: 80px;
     left: 0;
@@ -83,6 +84,12 @@ body {
     background-color: var(--color-midnight);
     padding: 1.5rem;
     border-bottom: 1px solid #1a1a1a;
+}
+
+/* This is the class JavaScript adds. NO SPACES in the name! */
+.nav-links.active {
+    display: block;
+    animation: fadeInDown 0.3s ease-out;
 }
 
 .nav-list {
