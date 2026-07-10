@@ -73,7 +73,7 @@ body {
     border-radius: 2px;
 }
 
-/* --- Mobile Navigation Links (Hidden by default) --- */
+
 /* --- Mobile Navigation Links (Hidden by default) --- */
 .nav-links {
     display: none; 
@@ -119,6 +119,10 @@ body {
     padding: 0.75rem 1.5rem;
     border-radius: 6px;
     font-weight: 600;
+    text-decoration: none; /* This kills the default browser underline */
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
 }
 
 .btn-primary:hover {
@@ -170,7 +174,7 @@ body {
 }
 
 .hero-tagline {
-    color: var(--color-gold); /* Using your Soft Gold accent */
+    color: var(--color-gold); /* Using the Gold accent */
     font-size: 0.9rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -197,7 +201,7 @@ body {
     flex-wrap: wrap; /* Ensures buttons don't break off-screen on tiny phones */
 }
 
-/* We already styled .btn-primary, so we only need to style .btn-secondary */
+/* I already styled .btn-primary, so I only need to style .btn-secondary */
 .btn-secondary {
     background-color: transparent;
     color: var(--color-white);
@@ -271,7 +275,7 @@ body {
 /* =========================================
    7. SHARED SECTION STYLES (Reusable)
    ========================================= */
-/* We will reuse this header style for the Services and Portfolio sections later */
+/* I reused this header style for the Services and Portfolio sections */
 .section-header {
     margin-bottom: 3rem;
     text-align: center;
@@ -318,7 +322,7 @@ body {
 }
 
 .about-highlight {
-    background-color: rgba(0, 102, 255, 0.05); /* A very faint wash of your Electric Blue */
+    background-color: rgba(0, 102, 255, 0.05); /* A very faint wash of Electric Blue */
     border-left: 4px solid var(--color-electric);
     padding: 1.5rem 2rem;
     margin: 1rem 0;
@@ -419,11 +423,12 @@ body {
     box-shadow: 0 10px 30px rgba(0, 102, 255, 0.15); 
 }
 
-/* Bringing in the Soft Gold for the icon */
+/* Bringing in the Soft Gold for the Bootstrap icon */
 .service-icon {
     color: var(--color-gold);
-    font-size: 1.5rem;
+    font-size: 2rem; /* Increased size slightly for better visibility on mobile */
     margin-bottom: 1rem;
+    display: inline-block;
 }
 
 .service-name {
