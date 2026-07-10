@@ -372,8 +372,17 @@ body {
     transition: color 0.3s ease;
 }
 
-.btn-text-toggle:hover {
+/* 1. Only apply hover effects on devices with a mouse (Laptops/Desktops) */
+@media (hover: hover) {
+    .btn-text-toggle:hover {
+        color: var(--color-white);
+    }
+}
+
+/* 2. Apply a quick 'active' flash for mobile phones when tapped */
+.btn-text-toggle:active {
     color: var(--color-white);
+    opacity: 0.8;
 }
 
 /* 4. A simple animation to make the dropdown feel premium, not jarring */
