@@ -1,12 +1,15 @@
 /* 1. CSS VARIABLES (Design Tokens) */
 :root {
-    --color-midnight: #050505;
-    --color-electric: #0066FF;
-    --color-silver: #E0E0E0;
-    --color-white: #FFFFFF;
-    --color-gold: #D4AF37;
+    /* The Core Palette */
+    --color-midnight: #050505; /* Deep, absorbing black, not greyish */
+    --color-electric: #0055FF; /* A slightly deeper, richer electric blue so it doesn't look like a cheap hyperlink */
+    --color-white: #FFFFFF;    /* Pure stark white for high contrast */
+    --color-silver: #B3B3B3;   /* A highly readable, elegant silver for paragraphs */
+    --color-gold: #D4AF37;     /* Soft, metallic gold for authority accents */
     
-    --font-primary: system-ui, -apple-system, sans-serif;
+    /* The Font System */
+    --font-heading: 'Playfair Display', serif;
+    --font-primary: 'Plus Jakarta Sans', sans-serif;
 }
 
 /* 2. UNIVERSAL RESET */
@@ -121,13 +124,21 @@ body {
     font-weight: 600;
     text-decoration: none; /* This kills the default browser underline */
     transition: background-color 0.3s ease;
-    border: none;
+    border: 1px solid var(--color-electric);
     cursor: pointer;
 }
 
 .btn-primary:hover {
-    background-color: #0052cc; /* A slightly darker blue for the hover effect */
-    color: var(--color-white);
+    background-color: transparent; /* Makes it hollow out on hover */
+    color: var(--color-electric);
+}
+
+/* The Gold Authority Gradient for the Hero Title */
+.text-gradient {
+    background: linear-gradient(135deg, var(--color-white) 0%, var(--color-silver) 50%, var(--color-gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 /* =========================================
@@ -156,8 +167,10 @@ body {
 /* =========================================
    6. HERO SECTION
    ========================================= */
+/* HERO: Midnight Black with a purely Electric Blue glow */
 .hero-section {
-    padding: 4rem 0; /* Creates breathing room at the top and bottom */
+    background: radial-gradient(circle at 50% -20%, rgba(0, 85, 255, 0.12) 0%, var(--color-midnight) 60%);
+    background-color: var(--color-midnight);
 }
 
 .hero-container {
@@ -235,32 +248,6 @@ body {
     color: var(--color-midnight);
 }
 
-/* --- Hero Image Styling --- */
-.hero-image-wrapper {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-.hero-image {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-}
-
-
-/* A premium geometric accent behind the image */
-.image-accent {
-    position: absolute;
-    bottom: -15px;
-    right: -15px;
-    width: 100%;
-    height: 100%;
-    border: 3px solid var(--color-electric);
-    border-radius: 12px;
-    z-index: 1;
-}
-
 /* =========================================
    DESKTOP ENHANCEMENTS (Tablet & Up)
    ========================================= */
@@ -315,6 +302,20 @@ body {
 /* =========================================
    8. ABOUT SECTION
    ========================================= */
+   /* --- Founder Image Styling --- */
+.founder-image-wrapper {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.founder-img {
+    width: 100%;
+    max-width: 350px; /* Keeps it from getting too massive on desktop */
+    border-radius: 12px;
+    border: 1px solid rgba(179, 179, 179, 0.2); /* Subtle silver border */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Deep shadow to pop off the dark background */
+}
+
 .about-section {
     padding: 5rem 0;
     background-color: #0a0a0a; /* Just slightly lighter than midnight black to separate the sections */
@@ -417,8 +418,7 @@ body {
    9. SERVICES SECTION
    ========================================= */
 .services-section {
-    padding: 5rem 0;
-    /* We keep the Midnight Black background here to alternate with the About section */
+    background-color: var(--color-midnight); 
 }
 
 /* --- The Mobile-First Grid --- */
@@ -750,58 +750,70 @@ body {
 /* =========================================
    13. FOOTER MOBILE RESPONSIVENESS
    ========================================= */
-@media (max-width: 768px) {
-    .footer-container {
-        /* On phones, destroy the 3 columns and stack them on top of each other */
-        grid-template-columns: 1fr; 
-        gap: 2.5rem;
+/* --- Bottom Copyright & Agency Signature --- */
+.footer-bottom {
+    border-top: 1px solid #1a1a1a;
+    padding: 1.5rem 0;
+    background-color: #020202;
+}
+
+.bottom-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+}
+
+.bottom-container p {
+    margin: 0;
+    color: var(--color-silver);
+}
+
+/* The ImpactDev Styling */
+.agency-credit {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    gap: 0.3rem;
+}
+
+.crafted-text {
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    color: var(--color-silver);
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+.agency-name {
+    color: var(--color-silver);
+}
+
+/* The Signature Glow Effect */
+.impact-effect {
+    color: var(--color-white);
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+@media (hover: hover) {
+    .impact-effect:hover {
+        color: var(--color-electric);
+        text-shadow: 0 0 10px rgba(0, 102, 255, 0.6); /* Creates the premium glow */
     }
-    
+}
+
+/* Mobile adjustments for the signature */
+@media (max-width: 768px) {
     .bottom-container {
         flex-direction: column;
         text-align: center;
-        gap: 1rem;
+        gap: 1.5rem;
     }
-}
-/* --- ImpactDev Agency Signature --- */
-.agency-signature {
-    margin-top: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-.signature-divider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-}
-
-.signature-line {
-    width: 2rem;
-    height: 1px;
-    background-color: #333; /* Approximates Tailwind's slate-700 on a dark theme */
-}
-
-.signature-text {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #666; /* Approximates Tailwind's slate-500 */
-}
-
-.signature-credit {
-    font-size: 0.75rem;
-    color: #666;
-    letter-spacing: 0.025em;
-}
-
-.signature-brand {
-    font-family: serif;
-    color: #ccc; /* Approximates Tailwind's slate-300 */
-    margin-left: 0.25rem;
+    .agency-credit {
+        text-align: center;
+    }
 }
 /* =========================================
    14. FLOATING WHATSAPP BUTTON
