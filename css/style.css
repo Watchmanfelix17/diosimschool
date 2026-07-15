@@ -193,29 +193,46 @@ body {
     max-width: 90%;
 }
 
-/* --- Hero Buttons --- */
+/* --- Hero Upgrade Styles --- */
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: rgba(212, 175, 55, 0.1); /* Soft Gold background */
+    color: var(--color-gold);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
 .hero-buttons {
     display: flex;
     gap: 1rem;
-    margin-top: 1rem;
-    flex-wrap: wrap; /* Ensures buttons don't break off-screen on tiny phones */
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap; /* Keeps buttons neat on mobile */
 }
 
-/* I already styled .btn-primary, so I only need to style .btn-secondary */
+/* The new Outline Button */
 .btn-secondary {
     background-color: transparent;
     color: var(--color-white);
     padding: 0.75rem 1.5rem;
-    border: 2px solid var(--color-silver);
     border-radius: 6px;
     font-weight: 600;
     text-decoration: none;
+    border: 1px solid var(--color-white);
     transition: all 0.3s ease;
 }
 
 .btn-secondary:hover {
-    border-color: var(--color-gold);
-    color: var(--color-gold);
+    background-color: var(--color-white);
+    color: var(--color-midnight);
 }
 
 /* --- Hero Image Styling --- */
@@ -412,44 +429,79 @@ body {
     gap: 1.5rem; /* Space between cards */
 }
 
-/* --- The Individual Service Card --- */
+/* --- The Upgraded Service Card --- */
 .service-card {
-    background-color: #0c0c0c; /* Just slightly lighter than the background to make a box shape */
-    border: 1px solid #1a1a1a; /* A very faint border */
+    background-color: #0c0c0c;
+    border: 1px solid #1a1a1a;
     padding: 2rem;
-    border-radius: 8px;
-    /* The transition tells the browser to animate ANY changes over 0.3 seconds smoothly */
-    transition: all 0.3s ease; 
+    border-radius: 12px; /* Slightly rounder edges for a premium feel */
+    text-decoration: none; /* Prevents browser from underlining the text */
+    display: flex;
+    flex-direction: column; /* Stacks content top-to-bottom */
+    transition: all 0.3s ease;
 }
 
-/* This is where the magic happens on mouse hover */
-.service-card:hover {
-    /* The border lights up with the client's Electric Blue */
-    border-color: var(--color-electric); 
-    /* The card physically lifts up 5 pixels */
-    transform: translateY(-5px); 
-    /* We add a subtle glowing shadow underneath using the Electric Blue with 15% opacity */
-    box-shadow: 0 10px 30px rgba(0, 102, 255, 0.15); 
+.service-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
 }
 
-/* Bringing in the Soft Gold for the Bootstrap icon */
 .service-icon {
     color: var(--color-gold);
-    font-size: 2rem; /* Increased size slightly for better visibility on mobile */
-    margin-bottom: 1rem;
-    display: inline-block;
+    font-size: 1.8rem;
+    margin-bottom: 0; /* Reset margin since it's now in a flex header */
+}
+
+/* The new Category Badge */
+.service-badge {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--color-silver);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.4rem 0.8rem;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .service-name {
     color: var(--color-white);
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
 }
 
 .service-desc {
     color: var(--color-silver);
     font-size: 0.95rem;
     line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* The Inquire Link pushed to the bottom */
+.service-link {
+    margin-top: auto; /* Automatically pushes this to the absolute bottom of the card */
+    color: var(--color-electric);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover Effects */
+@media (hover: hover) {
+    .service-card:hover {
+        border-color: var(--color-electric);
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 102, 255, 0.15);
+    }
+
+    /* Make the arrow slide slightly to the right on hover */
+    .service-card:hover .service-link {
+        transform: translateX(5px); 
+    }
 }
 
 /* =========================================
@@ -683,4 +735,47 @@ body {
     font-family: serif;
     color: #ccc; /* Approximates Tailwind's slate-300 */
     margin-left: 0.25rem;
+}
+/* =========================================
+   13. FLOATING WHATSAPP BUTTON
+   ========================================= */
+.floating-whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366; /* Official WhatsApp Green */
+    color: #ffffff;
+    padding: 0.75rem 1.25rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    z-index: 9999; /* Ensures it always stays on top of everything */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.floating-whatsapp i {
+    font-size: 1.25rem;
+}
+
+.floating-whatsapp:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+    color: #ffffff;
+}
+
+/* Hide the text on very small screens so it's just a circular icon */
+@media (max-width: 480px) {
+    .floating-whatsapp {
+        padding: 1rem;
+        border-radius: 50%;
+    }
+    .floating-whatsapp span, 
+    .floating-whatsapp text {
+        display: none; /* If you wanted to hide text, but we'll leave it for now as Joel Care has it */
+    }
 }
