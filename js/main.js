@@ -41,3 +41,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+/* =========================================
+   BACK TO TOP BUTTON LOGIC
+   ========================================= */
+const backToTopButton = document.getElementById('back-to-top');
+
+window.addEventListener('scroll', () => {
+    // If the user scrolls down more than 300 pixels
+    if (window.scrollY > 300) {
+        backToTopButton.classList.add('show');
+    } else {
+        // If they scroll back to the top, hide it again
+        backToTopButton.classList.remove('show');
+    }
+});
