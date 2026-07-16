@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
 /* =========================================
    BACK TO TOP BUTTON LOGIC
    ========================================= */
@@ -54,4 +55,37 @@ window.addEventListener('scroll', () => {
         // If they scroll back to the top, hide it again
         backToTopButton.classList.remove('show');
     }
+});
+
+/* =========================================
+   LIGHT/DARK MODE TOGGLE
+   ========================================= */
+const themeToggleBtn = document.getElementById('theme-toggle');
+const themeIcon = themeToggleBtn.querySelector('i');
+
+// 1. Check if the user previously saved a theme preference
+const currentTheme = localStorage.getItem('theme');
+
+// 2. If they preferred light mode, apply it immediately on load
+if (currentTheme === 'light') {
+    document.body.classList.add('light-theme');
+    themeIcon.classList.replace('bi-sun', 'bi-moon');
+}
+
+// 3. Listen for clicks on the button
+themeToggleBtn.addEventListener('click', () => {
+    // Toggle the light-theme class on the body
+    document.body.classList.toggle('light-theme');
+    
+    // Determine the current state and swap icons
+    let theme = 'dark';
+    if (document.body.classList.contains('light-theme')) {
+        theme = 'light';
+        themeIcon.classList.replace('bi-sun', 'bi-moon'); // Change to moon when light mode is active
+    } else {
+        themeIcon.classList.replace('bi-moon', 'bi-sun'); // Change to sun when dark mode is active
+    }
+    
+    // Save the new preference to the browser's local storage
+    localStorage.setItem('theme', theme);
 });
