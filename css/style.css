@@ -1,15 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap');
 /* 1. CSS VARIABLES (Design Tokens) */
-:root {
-    /* The Core Palette */
+:root { /* The Core Palette */
     --color-midnight: #050505; /* Deep, absorbing black, not greyish */
     --color-electric: #0055FF; /* A slightly deeper, richer electric blue so it doesn't look like a cheap hyperlink */
     --color-white: #FFFFFF;    /* Pure stark white for high contrast */
     --color-silver: #B3B3B3;   /* A highly readable, elegant silver for paragraphs */
     --color-gold: #D4AF37;     /* Soft, metallic gold for authority accents */
-    
-    /* The Font System */
-    --font-heading: 'Playfair Display', serif;
+    --font-heading: 'Outfit', sans-serif;
     --font-primary: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Force all headings to use the new premium font */
+h1, h2, h3, h4, h5, h6, .section-title, .form-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
 }
 
 /* 2. UNIVERSAL RESET */
@@ -195,9 +199,18 @@ body {
 }
 
 .hero-title {
-    color: var(--color-white);
-    font-size: 2.5rem;
-    line-height: 1.2;
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem); /* Responsive sizing: huge on desktop, normal on phones */
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -1px; /* Tightens the letters for a logo-like feel */
+    margin-bottom: 1.5rem;
+    
+    /* Premium Gradient Effect */
+    background: linear-gradient(135deg, #ffffff 0%, #B3B3B3 50%, #D4AF37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .hero-description {
@@ -308,12 +321,24 @@ body {
     margin-bottom: 2.5rem;
 }
 
-.founder-img {
+/* --- Contained Premium Portrait (No Edge-to-Edge) --- */
+.founder-img-expanded {
     width: 100%;
-    max-width: 350px; /* Keeps it from getting too massive on desktop */
-    border-radius: 12px;
-    border: 1px solid rgba(179, 179, 179, 0.2); /* Subtle silver border */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Deep shadow to pop off the dark background */
+    max-width: 480px; /* Substantial and commanding, but strictly contained inside the grid */
+    height: auto;     /* Lets the image scale naturally without forced cropping */
+    border-radius: 16px; /* Elegant, premium corners */
+    
+    /* This centers the image perfectly and gives it breathing room */
+    display: block;
+    margin: 2rem auto 3rem auto; 
+    
+    /* Keeps that subtle futuristic tech glow */
+    box-shadow: 0 15px 40px rgba(0, 85, 255, 0.15); 
+    
+    /* Safety reset just in case any old math is left over */
+    position: static;
+    transform: none;
+    left: auto;
 }
 
 .about-section {
@@ -1082,9 +1107,12 @@ body.light-theme [class*="contact"] h2,
 body.light-theme [class*="contact"] p {
     color: #FFFFFF !important;
 }
-/* 4. Protect the Bold Text inside the Footer (Image 23) 
-   Overrides the global strong tag rule to keep footer labels white */
-body.light-theme .site-footer strong,
-body.light-theme .site-footer b {
-    color: #FFFFFF !important;
+/* --- Light Mode Gradient Override --- */
+body.light-theme .hero-title,
+body.light-theme .text-gradient {
+    /* Swaps the white gradient for a Dark Charcoal to Gold gradient */
+    background: linear-gradient(135deg, #111111 0%, #555555 50%, #D4AF37 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
 }
