@@ -321,21 +321,24 @@ body {
     margin-bottom: 2.5rem;
 }
 
-/* --- Contained Premium Portrait (No Edge-to-Edge) --- */
+/* --- Contained Premium Portrait (Substantial Size & Soft Glow) --- */
 .founder-img-expanded {
     width: 100%;
-    max-width: 480px; /* Substantial and commanding, but strictly contained inside the grid */
-    height: auto;     /* Lets the image scale naturally without forced cropping */
-    border-radius: 16px; /* Elegant, premium corners */
-    
-    /* This centers the image perfectly and gives it breathing room */
+    max-width: 700px; /* Expanded to be much more substantial on desktop without going edge-to-edge */
+    height: auto;
+    border-radius: 16px;
     display: block;
     margin: 2rem auto 3rem auto; 
     
-    /* Keeps that subtle futuristic tech glow */
-    box-shadow: 0 15px 40px rgba(0, 85, 255, 0.15); 
+    /* --- THE SOFT GLOW --- */
+    /* Extremely faint border just to stop it from melting into the background */
+    border: 1px solid rgba(0, 85, 255, 0.08); 
     
-    /* Safety reset just in case any old math is left over */
+    /* Layered shadows, but dialed way down for a subtle, atmospheric feel */
+    box-shadow: 
+        0 0 15px rgba(0, 85, 255, 0.08),  /* Soft, tight inner aura */
+        0 15px 40px rgba(0, 85, 255, 0.15); /* Gentle, wide outer spread */
+    
     position: static;
     transform: none;
     left: auto;
