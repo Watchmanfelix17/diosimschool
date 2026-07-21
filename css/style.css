@@ -560,34 +560,42 @@ body {
 }
 
 /* =========================================
-   9.5 MASTERMIND SECTION (Upsell Block)
+   MASTERMIND SECTION OVERRIDE
    ========================================= */
-.mastermind-section {
-    padding: 4rem 0;
-    background-color: var(--color-midnight);
-}
 
-.mastermind-container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
+/* 1. Fix the Clashing Sections */
 .mastermind-box {
-    /* Creates a highly premium, subtle glowing gradient using the Electric Blue */
     background: linear-gradient(145deg, rgba(0, 102, 255, 0.08) 0%, rgba(0, 0, 0, 0) 100%);
     border: 1px solid rgba(0, 102, 255, 0.2);
     border-radius: 12px;
-    padding: 4rem 2rem;
-    text-align: center;
+    padding: 3rem 1.5rem; 
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    
+    /* THE SPACING FIX: Pushes the box away from the "Inquire Now" card above */
+    margin-top: 4rem; 
+    margin-bottom: 2rem;
+    
+    /* THE LAYOUT FIX: Flexbox forces everything inside to stack perfectly without overlapping */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
-.mastermind-desc {
-    color: var(--color-silver);
-    font-size: 1.15rem;
-    line-height: 1.8;
-    margin: 1.5rem auto 2.5rem auto;
-    max-width: 650px; /* Keeps the paragraph from getting too wide and hard to read */
+/* 2. Fix the Heading Spacing inside the box */
+.mastermind-box h2 {
+    margin-bottom: 1rem !important;
+}
+
+/* 3. The Perfected Body Text (Matching Photo 1) */
+.mastermind-box p {
+    width: 100% !important;
+    max-width: 600px !important; /* Slightly tighter width to match the original shape */
+    line-height: 1.7 !important; /* Dialed back from 2.0 to get that perfect airy-but-connected feel */
+    font-size: 1rem !important; /* Slightly scaled down so more words fit on a single line */
+    color: var(--color-silver) !important;
+    margin: 1.5rem auto 2.5rem auto !important; 
+    padding: 0 !important;
 }
 
 /* =========================================
